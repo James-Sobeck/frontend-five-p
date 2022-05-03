@@ -426,15 +426,7 @@ export default function Home() {
                     </button>
                   </div>
                 </form>
-                <p class="w-full mt-4 text-sm text-center text-gray-500">
-                  Prefer to send the email yourself?{" "}
-                  <button
-                    onClick={() => copyEmail()}
-                    class="text-blue-500 underline"
-                  >
-                    Copy it here
-                  </button>
-                </p>
+                
               </div>
             </div>
           </div>
