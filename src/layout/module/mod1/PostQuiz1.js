@@ -1,14 +1,20 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import react, { useState } from "react";
-import logo from "../../img/GlobalUnderstandingLogo.37b38633.png";
-export default function PreQuiz() {
+import logo from "../../../img/GlobalUnderstandingLogo.37b38633.png";
+import { updateUserMod } from "../../../api/api";
+
+export default function PostQuiz1() {
+  const location = useLocation();
+  
+  const[completed, setCompleted] = useState(false);
+  
   const [start, setStart] = useState(false);
   function changeButton() {
     setStart(!start);
   }
   return (
     <>
-      <section class="relative w-full px-8 text-gray-700 bg-white body-font">
+     <section class="relative w-full px-8 text-gray-700 bg-white body-font">
         <div class="container flex flex-col flex-wrap items-center justify-between py-5 mx-auto md:flex-row max-w-7xl">
           <a
             href="http://localhost:3000/"
@@ -17,43 +23,6 @@ export default function PreQuiz() {
             <img src={logo} style={{ height: "35px", paddingRight: "10px" }} />
             The Five Principles
           </a>
-
-          <nav class="top-0 left-0 z-0 flex items-center justify-center w-full h-full py-5 -ml-0 space-x-5 text-base md:-ml-5 md:py-0 md:absolute">
-            <a
-              href="#_"
-              class="relative font-medium leading-6 text-gray-600 transition duration-150 ease-out hover:text-gray-900"
-            ></a>
-            <a
-              href="http://localhost:3000/#About"
-              class="relative font-medium leading-6 text-gray-600 transition duration-150 ease-out hover:text-gray-900 no-underline"
-              x-data="{ hover: false }"
-              mouseenter="hover = true"
-              mouseleave="hover = false"
-            >
-              <span class="block">About</span>
-              <span class="absolute bottom-0 left-0 inline-block w-full h-0.5 -mb-1 overflow-hidden"></span>
-            </a>
-            <a
-              href="http://localhost:3000/#Program"
-              class="relative font-medium leading-6 text-gray-600 transition duration-150 ease-out hover:text-gray-900 no-underline"
-              x-data="{ hover: false }"
-              mouseenter="hover = true"
-              mouseleave="hover = false"
-            >
-              <span class="block">Program</span>
-              <span class="absolute bottom-0 left-0 inline-block w-full h-0.5 -mb-1 overflow-hidden"></span>
-            </a>
-            <a
-              href="http://localhost:3000/#Contact"
-              class="relative font-medium leading-6 text-gray-600 transition duration-150 ease-out hover:text-gray-900 no-underline"
-              x-data="{ hover: false }"
-              mouseenter="hover = true"
-              mouseleave="hover = false"
-            >
-              <span class="block">Contact</span>
-              <span class="absolute bottom-0 left-0 inline-block w-full h-0.5 -mb-1 overflow-hidden"></span>
-            </a>
-          </nav>
 
           <div class="relative z-10 inline-flex items-center space-x-3 md:ml-5 lg:justify-end">
             <span class="inline-flex rounded-md shadow-sm">
@@ -149,12 +118,12 @@ export default function PreQuiz() {
                     <textarea
                       type="text"
                       name="Answer"
-                      class="block w-full px-4 py-3 mb-4 border-2 border-transparent border-gray-200 rounded-lg focus:ring focus:ring-blue-500 focus:outline-none"
+                      class="block w-full px-4 py-3 mb-4 border-2  border-gray-300 rounded-lg focus:ring focus:ring-blue-500 focus:outline-none"
                       placeholder="Answer"
                     />
                      <div class="my-12 border-b border-gray-300 lg:my-12"></div>
                     <legend>
-                      3. Character refers to a person\'s "outer" makeup while
+                      3. Character refers to a person's "outer" makeup while
                       personality refers to their "inner" makeup?
                     </legend>
                     <div >
@@ -192,8 +161,33 @@ export default function PreQuiz() {
                       class="block w-full px-4 py-3 mb-4 border-2 border-gray-200 rounded-lg focus:ring focus:ring-blue-500 focus:outline-none"
                       value="False"
                     /></div>
+                     <div class="my-12 border-b border-gray-300 lg:my-12"></div>
+                    <legend>
+                      5. As a law enforcement officer your mental stability is the most important attribute.
+                    </legend>
+                    <div>
+                      <label class="text-center text-gray-800 xl:text-xl pt-4">
+                        True
+                      </label>{" "}
+                      <input
+                        type="checkbox"
+                        name="q4"
+                        class="block w-full px-4 py-3 mb-4 border-2 border-gray-200 rounded-lg focus:ring focus:ring-blue-500 focus:outline-none"
+                        value="True"
+                      />
+                      <label class="text-center text-gray-800 xl:text-xl">
+                        False
+                      </label>{" "}
+                      <input
+                        type="checkbox"
+                        name="q4"
+                        class="block w-full px-4 py-3 mb-4 border-2 border-gray-200 rounded-lg focus:ring focus:ring-blue-500 focus:outline-none"
+                        value="False"
+                      />
+                    </div>
                     <div class="block pt-4">
-                      <Link to="/module1">
+                      {setCompleted(true)}
+                      <Link to={{pathname:"/modules", state: completed}}>
                       <button class="w-full px-3 py-4 font-medium text-white bg-[#5b7bf0] rounded-md sm:mb-0 hover:bg-[#435aaf]">
                         Send
                       </button></Link>
@@ -208,6 +202,16 @@ export default function PreQuiz() {
           {!start && (
             <img src="https://cdn.devdojo.com/images/november2020/hero-image.png" />
           )}
+        </div>
+      </section>
+      <section class="bg-white">
+        <div class="max-w-screen-xl px-4 py-12 mx-auto space-y-8 overflow-hidden sm:px-6 lg:px-8">
+          <p class="mt-8 text-base leading-6 text-center text-gray-400">
+            <span class="block">
+              The Five Principles of Law Enforcement Professional Development
+            </span>
+            <span class="block">© Global Understanding LLC</span>
+          </p>
         </div>
       </section>
     </>

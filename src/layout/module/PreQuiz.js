@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import react, { useState } from "react";
 import logo from "../../img/GlobalUnderstandingLogo.37b38633.png";
 export default function PreQuiz() {
+  
   const [start, setStart] = useState(false);
   function changeButton() {
     setStart(!start);
@@ -61,7 +62,7 @@ export default function PreQuiz() {
                 href="#"
                 class="inline-flex items-center justify-center px-4 py-2 text-base font-medium leading-6 text-white whitespace-no-wrap bg-[#5b7bf0] border-[#5b7bf0] rounded-md shadow-sm hover:bg-[#435aaf] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#5b7bf0] no-underline"
               >
-                Sign up
+                Sign Out
               </a>
             </span>
           </div>
@@ -92,14 +93,15 @@ export default function PreQuiz() {
                   <h3 class="mb-6 text-2xl font-medium text-center">
                     Module 1 Pre-Quiz
                   </h3>
+                  <div class="my-12 border-b border-gray-300 lg:my-12"></div>
                   <form id="preQuiz">
                     <legend>
                       1. The United States Constitution provides that persons
                       shall not be subjected to unreasonable searches and/or
                       seizures. According to the preceding sentence...
                     </legend>
-                    <div class="flex">
-                    <label>
+                    <div >
+                    <label class="text-center text-gray-800 xl:text-xl pt-4">
                       The police may not conduct a search of a person`s home
                       without a valid Search Warrant.
                     </label>{" "}
@@ -108,8 +110,8 @@ export default function PreQuiz() {
                       name="q1"
                       class="block w-full px-4 py-3 mb-4 border-2 border-gray-200 rounded-lg focus:ring focus:ring-blue-500 focus:outline-none"
                       value="A"
-                    />
-                    <label>
+                    ></input>
+                    <label class="text-center text-gray-800 xl:text-xl">
                       The police may not seize a person without establishing
                       probable cause.
                     </label>{" "}
@@ -119,7 +121,7 @@ export default function PreQuiz() {
                       class="block w-full px-4 py-3 mb-4 border-2 border-gray-200 rounded-lg focus:ring focus:ring-blue-500 focus:outline-none"
                       value="B"
                     />
-                    <label>
+                    <label class="text-center text-gray-800 xl:text-xl">
                       Non-citizens are not protected by the provisions of the
                       United States Constitution.
                     </label>{" "}
@@ -129,7 +131,7 @@ export default function PreQuiz() {
                       class="block w-full px-4 py-3 mb-4 border-2 border-gray-200 rounded-lg focus:ring focus:ring-blue-500 focus:outline-none"
                       value="C"
                     />
-                    <label>
+                    <label class="text-center text-gray-800 xl:text-xl">
                       Certain kinds of searches are forbidden by the United
                       States Constitution.
                     </label>
@@ -140,6 +142,7 @@ export default function PreQuiz() {
                       value="D"
                     />
                     </div>
+                    <div class="my-12 border-b border-gray-300 lg:my-12"></div>
                     <legend>
                       2. As an officer what characteristics do you believe are
                       essential to being law enforcement?
@@ -150,38 +153,40 @@ export default function PreQuiz() {
                       class="block w-full px-4 py-3 mb-4 border-2 border-transparent border-gray-200 rounded-lg focus:ring focus:ring-blue-500 focus:outline-none"
                       placeholder="Answer"
                     />
+                     <div class="my-12 border-b border-gray-300 lg:my-12"></div>
                     <legend>
                       3. Character refers to a person\'s "outer" makeup while
                       personality refers to their "inner" makeup?
                     </legend>
-                    <div class="flex">
-                    <label>True</label>{" "}
+                    <div >
+                    <label class="text-center text-gray-800 xl:text-xl pt-4">True</label>{" "}
                     <input
                       type="checkbox"
                       name="q3"
                       class="block w-full px-4 py-3 mb-4 border-2 border-gray-200 rounded-lg focus:ring focus:ring-blue-500 focus:outline-none"
                       value="True"
                     />
-                    <label>False</label>
+                    <label class="text-center text-gray-800 xl:text-xl">False</label>
                     <input
                       type="checkbox"
                       name="q3"
                       class="block w-full px-4 py-3 mb-4 border-2 border-gray-200 rounded-lg focus:ring focus:ring-blue-500 focus:outline-none"
                       value="False"
                     /></div>
+                     <div class="my-12 border-b border-gray-300 lg:my-12"></div>
                     <legend>
                       4. Good ethical conduct comes primarily from what a person
                       already has before he/she enrolls in the police academy.
                     </legend>
-                    <div class="flex">
-                    <label>True</label>{" "}
+                    <div >
+                    <label class="text-center text-gray-800 xl:text-xl pt-4">True</label>{" "}
                     <input
                       type="checkbox"
                       name="q4"
                       class="block w-full px-4 py-3 mb-4 border-2 border-gray-200 rounded-lg focus:ring focus:ring-blue-500 focus:outline-none"
                       value="True"
                     />
-                    <label>False</label>{" "}
+                    <label class="text-center text-gray-800 xl:text-xl">False</label>{" "}
                     <input
                       type="checkbox"
                       name="q4"
@@ -189,9 +194,10 @@ export default function PreQuiz() {
                       value="False"
                     /></div>
                     <div class="block pt-4">
+                      <Link to="/module1_video">
                       <button class="w-full px-3 py-4 font-medium text-white bg-[#5b7bf0] rounded-md sm:mb-0 hover:bg-[#435aaf]">
                         Send
-                      </button>
+                      </button></Link>
                     </div>
                   </form>
                 </div>
